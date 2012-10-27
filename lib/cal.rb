@@ -1,7 +1,6 @@
-require_relative 'calendar'
+require "calendar"
 
-month = ARGV[0].to_i
-year = ARGV[1].to_i
+Shoes.app :title => "Calendar Inputs", :width =>500, :height =>500 do
+    alert Calendar.new(@month,@year)
+ end
 
-cal = Calendar.new(month,year)
-print cal

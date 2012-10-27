@@ -59,7 +59,7 @@ class Calendar
     days = []
     month_end_day.times do |i|
     	days << sprintf("%2d ", i + 1)
-    end
+    en
     days
 	end
 
@@ -88,8 +88,35 @@ class Calendar
   	str << header
   	str << dow_header
 		week_array.each do |week|
-			str << week.join('') + "\n"
+			str << week.join(' ') + "\n"
 		end
 		str
   end
+
 end
+
+Shoes.app :title => " 2012 Calendar", :width =>510, :height =>400, do
+ flow :width => 510, :margin => 10 do
+      %w(Jan Feb Mar Apr May June July Aug Sept Oct Nov Dec).each do |btn|
+        button btn, :width => 150, :height => 80 do
+          method = case btn
+            when 'Jan'; alert Calendar.new(1,2012)
+            when 'Feb'; alert Calendar.new(2,1012)
+            when 'Mar'; alert Calendar.new(3,2012)
+            when 'Apr'; alert Calendar.new(4,2012)
+            when 'May'; alert Calendar.new(5,2012)
+            when 'June'; alert Calendar.new(6,2012)
+            when 'July'; alert Calendar.new(7,2012)
+            when 'Aug'; alert Calendar.new(8,2012)
+            when 'Sept'; alert Calendar.new(9,2012)
+            when 'Oct'; alert Calendar.new(10,2012)
+            when 'Nov'; alert Calendar.new(11,2012)
+            when 'Dec'; alert Calendar.new(12,2012)
+          end
+        end
+    end
+  end
+end
+end
+
+
